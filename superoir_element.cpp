@@ -13,7 +13,7 @@ Input : n = 6
 Output: 3
 */
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int Find_Number_Of_Superior_Element(vector<int> arr, int n) {
@@ -29,11 +29,10 @@ int Find_Number_Of_Superior_Element(vector<int> arr, int n) {
 }
 
 int main() {
-
     int n;
     cin >> n;
-    vector<int> arr;
-    for(int i=0; i<n; i++){
+    vector<int> arr(n); // Resize the vector to hold 'n' elements
+    for(int i = 0; i < n; i++) {
         cin >> arr[i];
     }
 

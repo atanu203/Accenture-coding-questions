@@ -1,41 +1,51 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-bool isNotVowel(char ch){
-    if(ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' || ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
-        return false;
-    }
-    else return true;
+int fact(int n)
+{
+    if(n==0||n==1)return 1;
+    
+    int ans=1;
+    
+    for(int i=2;i<=n;i++)
+        ans*=i;
+    
+    return ans;
 }
 
-int factorial(int num) {
-    if(num == 0 || num == 1){
-        return 1;
-    }
-    else{
-        return num*factorial(num-1);
-    }
-}
-
-int maxPermutation(vector<string> Arr) {
-    int N = Arr.size();
-    int maxCount = 0;
-    for(int i=0; i<N; i++){
-        int cons = 0;
-        string temp = Arr[i];
-        for(int j=0; i=j<temp.length(); j++){
-            if(isNotVowel(temp[j])) cons++;
-        }
-        int fact = factorial(cons);
-        maxCount = max(maxCount, fact);
-    }
-    return maxCount;
+bool isVowel(char ch)
+{
+    return (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U');
 }
 
 int main() {
-    vector<string> words = {"Hello", "ccbc", "aaciou"};
-
-    cout << maxPermutation(words);
-
+    int n;
+    cin>>n;
+    
+    vector<string>arr(n);
+    for(int i=0;i<n;i++)cin>>arr[i];
+    
+    int ans=-1;
+    
+    for(int i=0;i<n;i++)
+    {
+        string str=arr[i];
+        int count=0;
+        
+        for(int j=0;j<str.length();j++)
+        {
+            if(!isVowel(str[j]))
+            {
+                count++;
+            }
+        }
+        
+        ans=max(ans,count);
+        
+    }
+    
+    cout<<fact(ans);
+    
     return 0;
+    
 }

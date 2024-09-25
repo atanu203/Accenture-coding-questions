@@ -3,7 +3,7 @@ using namespace std;
 
 pair<int, int> convert12HrForm(int hr, int min) {
     pair<int, int> ans;
-    if(hr > 12){
+    if(hr >= 12){
         hr = hr - 12;
     }
     ans.first = hr;
